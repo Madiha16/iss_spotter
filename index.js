@@ -1,5 +1,6 @@
-// index.js
-const { fetchMyIP } = require('./iss');
+// // index.js
+// const { fetchMyIP } = require('./iss');
+const { fetchMyIP, fetchCoordsByIP } = require('./iss');
 
 fetchMyIP((error, ip) => {
   if (error) {
@@ -7,6 +8,14 @@ fetchMyIP((error, ip) => {
     return;
   }
 
-  console.log('It worked! Returned IP:', ip);
-  //console.log(typeof ip) check if ip is a string
+  console.log('IP', ip);
+  return ip;
+});
+
+fetchCoordsByIP('67.216.50.67', (error, response) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(response);
+  }
 });
