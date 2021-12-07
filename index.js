@@ -43,7 +43,7 @@ const { nextISSTimesForMyLocation } = require('./iss');
 
 
 
-const nextPass = passTimes => {
+const nextPass = passTimes => {//printPassTimes?
   for (let pass of passTimes) {
     let time = pass.duration;
     //let date = pass.risetime; //mine
@@ -73,3 +73,11 @@ nextISSTimesForMyLocation((error, passTimes) => {
   // success, print out the deets!
   nextPass(passTimes);
 });
+
+// // why doesn't the join method change the sep array, like the .setUTCSeconds(pass.risetime) changed datetime?
+// let sep = ["a", "sefksjhfsdb", "c", "d"];
+// sep.join(" ");
+// console.log(sep);// [ 'a', 'sefksjhfsdb', 'c', 'd' ]
+// console.log(sep.join());// a,sefksjhfsdb,c,d
+
+module.exports = { nextPass };
